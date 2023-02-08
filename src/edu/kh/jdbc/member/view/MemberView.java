@@ -3,11 +3,14 @@ package edu.kh.jdbc.member.view;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import edu.kh.jdbc.main.model.service.MemberServie.MemberService;
 import edu.kh.jdbc.member.vo.Member;
 
 public class MemberView {
 	
 	private Scanner sc = new Scanner(System.in);
+	
+	private MemberService Memberservice = new MemberService();
 	
 	//로그인 회원 정보 저장용 변수
 	private Member loginMember = null; 
@@ -24,7 +27,7 @@ public class MemberView {
 			
 			try {
 				
-				if( this.LoginMember != null ) {
+				if( this.loginMember != null ) {
 					
 					System.out.println("회원 기능");
 					System.out.println("1. 내 정보 조회");// slelctMyinfo()//
@@ -44,10 +47,10 @@ public class MemberView {
 					switch(input) {
 					
 					case 1: selectMyinfo();
-					case 2: selectAll();
-					case 3: updatemember();
-					case 4: updatePw();
-					case 5: secession();
+					//case 2: selectAll();
+					//case 3: updatemember();
+					//case 4: updatePw();
+					//case 5: secession();
 					case 0: 
 						System.out.println("프로그램 종료");
 						break;
@@ -76,9 +79,13 @@ public class MemberView {
 		System.out.println("나의 회원 정보");
 		
 		try {
-			selectMyinfo = service.selectMyinfo(memberId, memberPw1, memberName, memberGender);
 			
-			System.out.printf("%d + %d + %d+ %d", memberId, memberPw1, memberName, memberGender );
+			loginMember = Memberservice.selectMyinfo(memberId, memberPw, memberName, memberGender);
+			
+			
+			
+			System.out.println();
+			
 			
 			
 		} catch(Exception e) {
@@ -87,5 +94,6 @@ public class MemberView {
 		
 		
 	}
+
 
 }

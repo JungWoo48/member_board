@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
 <properties>
-<comment>member-query.xml file</comment>
+	
+	<comment>member-query.xml file</comment>
+	
+	<entry key="selectMyinfo">
+	 SELECT MEMBER_ID, MEMBER_PW, MEMBER_NM, MEMBER_GENDER
+	 FROM MEMBER
+	 WHERE MEMBER_ID = ?
+	</entry>
+
 </properties>

@@ -71,7 +71,8 @@ public class MainDAO {
 			
 			if(rs.next()) {
 				
-				loginMember = new Member(rs.getInt("MEMBER_NO"),
+				loginMember = new Member
+							(rs.getInt("MEMBER_NO"),
 							memberId,
 							rs.getString("MEMBER_NM"),
 							rs.getString("MEMBER_GENDER"),
